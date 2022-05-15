@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">LouisCasillasITunes</string>
+    <string name="fragment">FRAGMENT</string>
+    <string name="user_thumbnail">User Thumbnail</string>
+</resources>
