@@ -1,5 +1,8 @@
 package com.example.louiscasillasitunes.fragments
 
+import android.graphics.LinearGradient
+import android.graphics.drawable.Drawable
+import android.graphics.drawable.GradientDrawable
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -45,16 +48,32 @@ class SongFragment : Fragment() {
         }
     }
 
-    fun getSongs(inflater: LayoutInflater)
+    fun setRandomBackground(view : View)
+    {
+        val randomBackground : GradientDrawable = GradientDrawable()
+        val background_colors : IntArray = IntArray(2)
+        background_colors[0] = (0x70000000 or (0..16777215).random()).toInt()
+        background_colors[1] = (0x70000000 or (0..16777215).random()).toInt()
+
+        randomBackground.colors = background_colors
+        randomBackground.gradientType = android.graphics.drawable.GradientDrawable.LINEAR_GRADIENT
+
+        view.setBackground(randomBackground)
+    }
+
+    fun getSongs(inflater: LayoutInflater, view: View)
     {
         musicType = requireArguments().getInt(MUSIC_KEY)
 
         if (musicType == CLASSIC){
             startRetrofit(inflater, ApiServiceITunes.createRetrofit().create(ApiServiceITunes::class.java).getClassicSongs())
+            setRandomBackground(view)
         }else if(musicType == ROCK){
             startRetrofit(inflater, ApiServiceITunes.createRetrofit().create(ApiServiceITunes::class.java).getRockSongs())
+            setRandomBackground(view)
         }else if(musicType == POP){
             startRetrofit(inflater, ApiServiceITunes.createRetrofit().create(ApiServiceITunes::class.java).getPopSongs())
+            setRandomBackground(view)
         }
     }
 
@@ -64,7 +83,7 @@ class SongFragment : Fragment() {
         rvSongList = view.findViewById(R.id.rv_songs)
         swipeRefresher = view.findViewById(R.id.swipe_refresher)
 
-        getSongs(inflater)
+        getSongs(inflater, view)
 
         // TODO: tab_viewpager. set background color for frags
 
@@ -72,7 +91,7 @@ class SongFragment : Fragment() {
 
             swipeRefresher.isRefreshing = true
 
-            getSongs(inflater)
+            getSongs(inflater, view)
 
             // TODO: shuffle song cards
         }

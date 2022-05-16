@@ -8,6 +8,7 @@
         <entry key="app/src/main/res/drawable/ic_spanish_24.xml" value="0.2" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.10967741935483871" />
         <entry key="app/src/main/res/layout/fragment_layout.xml" value="0.14153846153846153" />
+        <entry key="app/src/main/res/layout/song_card.xml" value="0.15020263424518743" />
         <entry key="app/src/main/res/layout/song_item.xml" value="0.1" />
       </map>
     </option>
