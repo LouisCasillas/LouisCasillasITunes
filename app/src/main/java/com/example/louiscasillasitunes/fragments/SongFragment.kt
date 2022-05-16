@@ -65,15 +65,14 @@ class SongFragment : Fragment() {
     {
         musicType = requireArguments().getInt(MUSIC_KEY)
 
+        setRandomBackground(view)
+
         if (musicType == CLASSIC){
             startRetrofit(inflater, ApiServiceITunes.createRetrofit().create(ApiServiceITunes::class.java).getClassicSongs())
-            setRandomBackground(view)
         }else if(musicType == ROCK){
             startRetrofit(inflater, ApiServiceITunes.createRetrofit().create(ApiServiceITunes::class.java).getRockSongs())
-            setRandomBackground(view)
         }else if(musicType == POP){
             startRetrofit(inflater, ApiServiceITunes.createRetrofit().create(ApiServiceITunes::class.java).getPopSongs())
-            setRandomBackground(view)
         }
     }
 
