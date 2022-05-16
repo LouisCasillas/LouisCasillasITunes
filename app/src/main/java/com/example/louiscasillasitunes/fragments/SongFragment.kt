@@ -23,6 +23,7 @@ class SongFragment : Fragment() {
     lateinit var rvSongList: RecyclerView
     lateinit var songAdapter: SongAdapter
     lateinit var swipeRefresher: SwipeRefreshLayout
+
     private var musicType : Int = CLASSIC
 
     companion object {
@@ -64,6 +65,8 @@ class SongFragment : Fragment() {
         swipeRefresher = view.findViewById(R.id.swipe_refresher)
 
         getSongs(inflater)
+
+        // TODO: tab_viewpager. set background color for frags
 
         swipeRefresher.setOnRefreshListener {
 

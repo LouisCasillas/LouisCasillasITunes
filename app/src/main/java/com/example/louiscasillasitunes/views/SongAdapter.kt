@@ -7,7 +7,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.example.louiscasillasitunes.model.ITunesSong
 import com.squareup.picasso.Picasso
@@ -48,7 +47,7 @@ class SongAdapter(private val list: List<ITunesSong>): RecyclerView.Adapter<Song
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SongViewHolder {
-        val listItem = LayoutInflater.from(parent.context).inflate(R.layout.song_item, parent, false)
+        val listItem = LayoutInflater.from(parent.context).inflate(R.layout.song_card, parent, false)
 
         return SongViewHolder(listItem)
     }
